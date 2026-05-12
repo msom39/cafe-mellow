@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAFE MELLOW | ä¸åæ²¢ã®ãã«ã¼ãããã§å°éã«ãã§</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Noto Sans JP',sans-serif;color:#333;line-height:1.8;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+
+:root{
+  --pink:#ff6b9d;
+  --pink-light:#ffb3d0;
+  --pink-bg:#fff0f5;
+  --blue:#7ec8e3;
+  --blue-light:#b8e6f5;
+  --blue-bg:#f0f8ff;
+  --yellow:#ffd43b;
+  --yellow-light:#ffe680;
+  --yellow-bg:#fffde7;
+  --mint:#a8e6cf;
+  --purple:#c39bd3;
+  --brown:#5a3e36;
+  --white:#ffffff;
+  --neon-pink:#ff69b4;
+  --neon-blue:#00d4ff;
+  --neon-yellow:#ffeb3b;
+}
+
+/* ===== Header ===== */
+.header{
+  background:var(--pink);
+  padding:0 30px;height:80px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:1000;
+  box-shadow:0 3px 15px rgba(255,107,157,0.3);
+}
+.logo{
+  font-family:'Pacifico',cursive;
+  font-size:1.8rem;color:#fff;
+  text-shadow:2px 2px 0 rgba(0,0,0,0.1);
+}
+.logo small{
+  font-family:'Poppins',sans-serif;
+  font-size:0.55rem;display:block;
+  letter-spacing:0.2em;font-weight:400;
+  text-shadow:none;margin-top:-4px;
+}
+.header-right{display:flex;align-items:center;gap:20px;}
+.header-tel{
+  color:#fff;font-family:'Poppins',sans-serif;
+  font-weight:700;font-size:1.1rem;
+  display:flex;align-items:center;gap:6px;
+}
+.header-hours{font-size:0.6rem;color:rgba(255,255,255,0.85);font-family:'Noto Sans JP';}
+.header-cta{
+  background:#fff;color:var(--pink);
+  padding:10px 24px;border-radius:30px;
+  font-size:0.82rem;font-weight:700;
+  transition:all 0.3s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.header-cta:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+
+/* ===== Nav ===== */
+.nav{
+  background:#fff;
+  border-bottom:3px solid var(--pink-light);
+  padding:0 30px;
+}
+.nav-list{
+  display:flex;max-width:700px;margin:0 auto;
+}
+.nav-list a{
+  flex:1;text-align:center;padding:14px 0;
+  font-size:0.88rem;font-weight:700;color:#555;
+  transition:all 0.3s;position:relative;
+}
+.nav-list a::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:0;height:3px;background:var(--pink);transition:width 0.3s;
+  border-radius:3px 3px 0 0;
+}
+.nav-list a:hover{color:var(--pink);}
+.nav-list a:hover::after,.nav-list a.active::after{width:80%;}
+.nav-list a.active{color:var(--pink);}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  height:560px;
+  overflow:hidden;
+}
+.hero-slide{
+  position:absolute;inset:0;
+  opacity:0;transition:opacity 1.2s;
+}
+.hero-slide.active{opacity:1;}
+.hero-bg-1{background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#ffdde1 100%);}
+.hero-bg-2{background:linear-gradient(135deg,#a8edea 0%,#fed6e3 50%,#d4fc79 100%);}
+.hero-bg-3{background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 50%,#ff9a9e 100%);}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;
+  height:100%;display:flex;align-items:center;
+  padding:0 60px;
+}
+.hero-text{flex:1;}
+.hero-neon{
+  font-family:'Pacifico',cursive;
+  font-size:clamp(2.5rem,5vw,4rem);
+  color:#fff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(255,105,180,0.6),
+    0 0 40px rgba(255,105,180,0.4),
+    0 0 80px rgba(255,105,180,0.2);
+  line-height:1.3;
+  margin-bottom:10px;
+}
+.hero-jp{
+  font-size:1.1rem;font-weight:700;
+  color:#fff;text-shadow:1px 1px 4px rgba(0,0,0,0.15);
+  margin-bottom:24px;
+}
+.hero-btn{
+  display:inline-block;
+  padding:14px 40px;
+  background:#fff;color:var(--pink);
+  font-weight:800;font-size:0.95rem;
+  border-radius:40px;
+  box-shadow:0 4px 15px rgba(255,107,157,0.3);
+  transition:all 0.3s;letter-spacing:0.05em;
+}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(255,107,157,0.4);}
+.hero-illust{
+  flex:1;display:flex;justify-content:center;align-items:center;
+}
+.hero-arrows{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:100%;display:flex;justify-content:space-between;
+  padding:0 16px;z-index:10;pointer-events:none;
+}
+.hero-arrow{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.5);backdrop-filter:blur(4px);
+  border:none;font-size:1rem;cursor:pointer;
+  pointer-events:auto;transition:background 0.3s;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-arrow:hover{background:rgba(255,255,255,0.8);}
+
+/* ===== Section ===== */
+.section{padding:80px 30px;}
+.section-title-en{
+  font-family:'Pacifico',cursive;
+  font-size:2.2rem;text-align:center;
+  margin-bottom:4px;
+}
+.section-title-jp{
+  text-align:center;font-size:0.85rem;
+  color:#888;margin-bottom:40px;font-weight:500;
+}
+
+/* ===== About ===== */
+.about{background:var(--pink-bg);}
+.about-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.about-illust-area{
+  background:linear-gradient(160deg,var(--blue-light),var(--mint));
+  border-radius:20px;padding:30px;
+  display:flex;align-items:center;justify-content:center;
+  min-height:350px;position:relative;overflow:hidden;
+}
+.about-text h3{
+  font-size:1.2rem;font-weight:900;
+  margin-bottom:16px;color:var(--brown);
+  line-height:1.6;
+}
+.about-text p{
+  font-size:0.88rem;line-height:2;color:#666;
+}
+.about-tags{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;
+}
+.about-tag{
+  background:var(--yellow-light);
+  padding:4px 14px;border-radius:20px;
+  font-size:0.72rem;font-weight:700;color:var(--brown);
+}
+
+/* ===== Features ===== */
+.features{background:#fff;}
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  max-width:1000px;margin:0 auto;
+}
+.feature-card{
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  transition:transform 0.3s;
+  cursor:pointer;
+}
+.feature-card:hover{transform:translateY(-6px);}
+.feature-card-img{
+  height:250px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.fc-pink{background:linear-gradient(160deg,#ff9a9e,#fad0c4);}
+.fc-blue{background:linear-gradient(160deg,#a1c4fd,#c2e9fb);}
+.fc-yellow{background:linear-gradient(160deg,#f6d365,#fda085);}
+.feature-badge{
+  position:absolute;top:14px;left:14px;
+  background:#fff;color:var(--pink);
+  font-size:0.7rem;font-weight:800;
+  padding:4px 14px;border-radius:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.feature-neon-text{
+  font-family:'Pacifico',cursive;
+  font-size:1.6rem;color:#fff;
+  text-shadow:0 0 10px rgba(255,255,255,0.6),0 0 20px currentColor;
+  position:absolute;top:16px;right:16px;
+  transform:rotate(-8deg);
+}
+.feature-card-body{
+  padding:20px;background:#fff;
+}
+.feature-card-body h3{
+  font-size:1rem;font-weight:800;margin-bottom:6px;
+}
+.feature-card-body p{
+  font-size:0.8rem;color:#888;line-height:1.7;
+}
+
+/* ===== Menu ===== */
+.menu-section{background:var(--yellow-bg);padding:80px 30px;}
+.menu-inner{max-width:1000px;margin:0 auto;}
+.menu-tabs{
+  display:flex;gap:10px;justify-content:center;
+  margin-bottom:40px;flex-wrap:wrap;
+}
+.menu-tab{
+  padding:10px 24px;border-radius:30px;
+  font-size:0.85rem;font-weight:700;
+  cursor:pointer;border:2px solid var(--pink);
+  background:#fff;color:var(--pink);
+  transition:all 0.3s;
+  font-family:'Noto Sans JP',sans-serif;
+}
+.menu-tab.active,.menu-tab:hover{
+  background:var(--pink);color:#fff;
+}
+
+.menu-cat{display:none;}
+.menu-cat.active{display:block;}
+.menu-list{display:flex;flex-direction:column;gap:16px;}
+.menu-row{
+  display:grid;grid-template-columns:160px 1fr auto;gap:20px;
+  align-items:center;
+  background:#fff;border-radius:16px;
+  padding:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  transition:transform 0.2s;
+}
+.menu-row:hover{transform:translateX(4px);}
+.menu-row-img{
+  width:160px;height:120px;
+  border-radius:12px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.menu-row-img img{width:100%;height:100%;object-fit:cover;}
+.feature-card-img img{width:100%;height:100%;object-fit:cover;border-radius:inherit;position:relative;z-index:0;}
+.menu-row-info h4{font-size:1rem;font-weight:800;margin-bottom:2px;}
+.menu-row-info .sub{font-size:0.75rem;color:#aaa;}
+.menu-row-price{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;font-weight:800;
+  color:var(--pink);white-space:nowrap;
+}
+.top-return{text-align:right;margin-top:20px;}
+.top-return a{font-size:0.85rem;color:var(--pink);font-weight:700;}
+
+/* ===== News ===== */
+.news-section{background:#fff;padding:80px 30px;}
+.news-inner{max-width:700px;margin:0 auto;}
+.news-item{
+  display:flex;gap:16px;padding:16px 0;
+  border-bottom:1px dashed var(--pink-light);
+  font-size:0.9rem;
+}
+.news-date{
+  font-family:'Poppins',sans-serif;
+  color:var(--pink);font-weight:700;
+  flex-shrink:0;font-size:0.85rem;
+}
+.news-btn{
+  display:block;width:fit-content;margin:30px auto 0;
+  background:var(--pink);color:#fff;
+  padding:12px 50px;border-radius:30px;
+  font-weight:700;font-size:0.9rem;
+  border:none;cursor:pointer;
+  font-family:'Noto Sans JP',sans-serif;
+  transition:all 0.3s;
+  box-shadow:0 3px 10px rgba(255,107,157,0.3);
+}
+.news-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(255,107,157,0.4);}
+
+/* ===== Shop ===== */
+.shop-section{background:var(--blue-bg);padding:80px 30px;}
+.shop-inner{max-width:1000px;margin:0 auto;}
+.shop-photos{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin-bottom:40px;
+}
+.shop-photo{
+  aspect-ratio:1;border-radius:16px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.sp1{background:linear-gradient(160deg,#a8e6cf,#88d8b0);}
+.sp2{background:linear-gradient(160deg,#ffd3b6,#ffaaa5);}
+.sp3{background:linear-gradient(160deg,#dcedc1,#a8e6cf);}
+.sp4{background:linear-gradient(160deg,#ff8b94,#ff6f69);}
+
+.shop-info-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+.shop-table table{width:100%;border-collapse:collapse;}
+.shop-table th,.shop-table td{
+  padding:12px 8px;border-bottom:1px solid #e0e0e0;
+  font-size:0.85rem;text-align:left;vertical-align:top;
+}
+.shop-table th{width:100px;color:var(--pink);font-weight:700;}
+.shop-map{
+  width:100%;aspect-ratio:4/3;
+  border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,#e8f4f8,#d4e9f7);
+  display:flex;align-items:center;justify-content:center;
+  color:#aaa;font-size:0.85rem;
+  border:2px dashed var(--blue);
+}
+
+/* ===== SNS ===== */
+.sns-section{background:#fff;padding:80px 30px;}
+.sns-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:800px;margin:0 auto;
+}
+.sns-card{
+  border-radius:16px;padding:36px 20px;text-align:center;
+  border:3px solid;
+  transition:all 0.3s;cursor:pointer;
+  background:#fff;
+}
+.sns-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+.sns-mail{border-color:var(--pink);}
+.sns-ig{border-color:var(--purple);}
+.sns-x{border-color:var(--blue);}
+.sns-card .icon{font-size:2rem;margin-bottom:10px;}
+.sns-card h4{font-size:1.1rem;font-weight:800;letter-spacing:0.05em;}
+.sns-mail h4{color:var(--pink);}
+.sns-ig h4{color:var(--purple);}
+.sns-x h4{color:var(--blue);}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--brown);color:#fff;
+  padding:40px 30px 80px;text-align:center;
+}
+.footer-links{
+  display:flex;gap:24px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:24px;
+}
+.footer-links a{font-size:0.8rem;color:rgba(255,255,255,0.7);transition:color 0.3s;}
+.footer-links a:hover{color:#fff;}
+.footer-logo{
+  font-family:'Pacifico',cursive;
+  font-size:1.5rem;margin-bottom:4px;
+}
+.footer-sub{font-size:0.6rem;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-bottom:16px;}
+.footer-copy{font-size:0.65rem;color:rgba(255,255,255,0.35);}
+
+/* ===== Sticky Bar ===== */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--pink);
+  padding:10px 30px;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:999;
+  box-shadow:0 -3px 15px rgba(255,107,157,0.3);
+}
+.sticky-phone{display:flex;align-items:center;gap:10px;color:#fff;}
+.sticky-phone .num{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;}
+.sticky-phone .hrs{font-size:0.6rem;}
+.sticky-right{display:flex;gap:10px;align-items:center;}
+.sticky-cta{
+  background:#fff;color:var(--pink);
+  padding:10px 28px;border-radius:30px;
+  font-size:0.82rem;font-weight:700;
+  transition:all 0.3s;
+}
+.sticky-cta:hover{transform:translateY(-1px);}
+.sticky-top-btn{
+  width:40px;height:40px;
+  background:#fff;color:var(--pink);
+  border:none;border-radius:50%;
+  font-size:1.1rem;font-weight:800;cursor:pointer;
+  transition:all 0.3s;display:flex;align-items:center;justify-content:center;
+}
+.sticky-top-btn:hover{transform:translateY(-2px);}
+body{padding-bottom:60px;}
+
+/* ===== Animations ===== */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.8s,transform 0.8s;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+@keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .header{padding:0 16px;height:64px;}
+  .logo{font-size:1.3rem;}
+  .hero{height:420px;}
+  .hero-inner{flex-direction:column;padding:30px;justify-content:center;}
+  .hero-illust{display:none;}
+  .hero-neon{font-size:2rem;}
+  .about-inner{grid-template-columns:1fr;}
+  .features-grid{grid-template-columns:1fr;}
+  .menu-row{grid-template-columns:100px 1fr auto;gap:12px;}
+  .menu-row-img{width:100px;height:80px;}
+  .shop-photos{grid-template-columns:repeat(2,1fr);}
+  .shop-info-grid{grid-template-columns:1fr;}
+  .sns-grid{grid-template-columns:1fr;}
+  .sticky-phone .num{font-size:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">Cafe Mellow<small>SEASONAL FRUIT PARFAIT CAFE</small></div>
+  <div class="header-right">
+    <div>
+      <div class="header-tel">â 03-5765-8821</div>
+      <div class="header-hours">ãå¹³æ¥ã11:00ã21:00 ãåæ¥ç¥ã10:00ã22:00</div>
+    </div>
+    <a href="#contact" class="header-cta">ãåãåãã</a>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-list">
+    <a href="#top" class="active">ãã¼ã </a>
+    <a href="#menu">ã¡ãã¥ã¼</a>
+    <a href="#shop">åºèç´¹ä»</a>
+    <a href="#news-sec">ãç¥ãã</a>
+    <a href="#contact">æ¡ç¨æå ±</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-slide active hero-bg-1">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-neon">Eat Here!</h1>
+        <p class="hero-jp">å®çãã³ã´ã¼ã®è´æ²¢ããã§ ð¥­</p>
+        <a href="#menu" class="hero-btn">â¨ ORDER NOW</a>
+      </div>
+      <div class="hero-illust">
+        <svg viewBox="0 0 300 340" width="280" style="animation:float 3s ease-in-out infinite;filter:drop-shadow(4px 8px 12px rgba(0,0,0,0.15))">
+          <!-- Parfait Glass -->
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff3e0"/><stop offset="100%" stop-color="#ffe0b2"/></linearGradient>
+            <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fffde7"/><stop offset="100%" stop-color="#fff9c4"/></linearGradient>
+          </defs>
+          <!-- Glass body -->
+          <path d="M90 100 L80 280 C80 300 220 300 220 280 L210 100 Z" fill="url(#g1)" stroke="#e0c080" stroke-width="2" opacity="0.7"/>
+          <!-- Layers -->
+          <rect x="90" y="240" width="120" height="40" rx="4" fill="#ff8a65" opacity="0.6"/>
+          <rect x="88" y="200" width="124" height="40" rx="4" fill="#fff9c4" opacity="0.7"/>
+          <rect x="86" y="160" width="128" height="40" rx="4" fill="#ffab91" opacity="0.5"/>
+          <rect x="84" y="120" width="132" height="40" rx="4" fill="#c8e6c9" opacity="0.6"/>
+          <!-- Whipped cream -->
+          <ellipse cx="150" cy="110" rx="80" ry="28" fill="#fffde7"/>
+          <circle cx="120" cy="95" r="22" fill="#fff"/>
+          <circle cx="150" cy="88" r="25" fill="#fff"/>
+          <circle cx="180" cy="95" r="22" fill="#fff"/>
+          <!-- Mango -->
+          <ellipse cx="130" cy="72" rx="25" ry="18" fill="#ffb74d" transform="rotate(-15 130 72)"/>
+          <ellipse cx="170" cy="72" rx="22" ry="16" fill="#ffa726" transform="rotate(10 170 72)"/>
+          <!-- Cherry -->
+          <circle cx="150" cy="52" r="14" fill="#ef5350"/>
+          <path d="M150 52 C155 30 160 20 165 10" stroke="#43a047" stroke-width="3" fill="none"/>
+          <ellipse cx="166" cy="8" rx="12" ry="6" fill="#66bb6a"/>
+          <!-- Sparkles -->
+          <text x="60" y="60" font-size="20" fill="#ffd54f" style="animation:glow 2s infinite">â¨</text>
+          <text x="210" y="50" font-size="16" fill="#ffd54f" style="animation:glow 2s infinite 0.5s">â¨</text>
+          <text x="230" y="140" font-size="14" fill="#ffd54f" style="animation:glow 2s infinite 1s">â¨</text>
+          <!-- Straw -->
+          <rect x="168" y="20" width="6" height="120" rx="3" fill="#ff80ab" transform="rotate(8 171 80)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide hero-bg-2">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-neon" style="text-shadow:0 0 10px rgba(255,255,255,0.8),0 0 20px rgba(0,212,255,0.6),0 0 40px rgba(0,212,255,0.4);">Favorite â¡</h1>
+        <p class="hero-jp">å­£ç¯éå®ï¼ãã¾ããèºã®ã¹ãã·ã£ã«ããã§ ð</p>
+        <a href="#menu" class="hero-btn" style="color:var(--blue);">â¨ CHECK MENU</a>
+      </div>
+      <div class="hero-illust">
+        <svg viewBox="0 0 300 340" width="280" style="animation:float 3s ease-in-out infinite 0.5s;filter:drop-shadow(4px 8px 12px rgba(0,0,0,0.15))">
+          <!-- Strawberry Parfait -->
+          <path d="M90 100 L80 280 C80 300 220 300 220 280 L210 100 Z" fill="#fff0f5" stroke="#ffb3d0" stroke-width="2" opacity="0.8"/>
+          <rect x="90" y="240" width="120" height="40" rx="4" fill="#ff80ab" opacity="0.5"/>
+          <rect x="88" y="200" width="124" height="40" rx="4" fill="#fff" opacity="0.7"/>
+          <rect x="86" y="160" width="128" height="40" rx="4" fill="#ff8a80" opacity="0.4"/>
+          <rect x="84" y="120" width="132" height="40" rx="4" fill="#f8bbd0" opacity="0.5"/>
+          <ellipse cx="150" cy="110" rx="80" ry="28" fill="#fff"/>
+          <circle cx="120" cy="95" r="22" fill="#fff5f5"/>
+          <circle cx="150" cy="88" r="25" fill="#fff"/>
+          <circle cx="180" cy="95" r="22" fill="#fff5f5"/>
+          <!-- Strawberries -->
+          <path d="M125 72 C120 58 130 48 135 58 C140 48 150 58 145 72 Z" fill="#ef5350"/>
+          <path d="M160 68 C155 54 165 44 170 54 C175 44 185 54 180 68 Z" fill="#e53935"/>
+          <path d="M142 55 C140 42 148 36 150 45 C152 36 160 42 158 55 Z" fill="#f44336"/>
+          <text x="60" y="55" font-size="20" fill="#ff80ab">ð</text>
+          <text x="210" y="65" font-size="16" fill="#ff80ab">ð</text>
+          <rect x="168" y="20" width="6" height="120" rx="3" fill="#80deea" transform="rotate(8 171 80)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide hero-bg-3">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-neon" style="text-shadow:0 0 10px rgba(255,255,255,0.8),0 0 20px rgba(255,235,59,0.6),0 0 40px rgba(255,235,59,0.4);">Recommend!</h1>
+        <p class="hero-jp">å®æ²»æ¹è¶ã¨ç½ç«ã®åããã§ ðµ</p>
+        <a href="#menu" class="hero-btn" style="color:#e65100;">â¨ SEE MORE</a>
+      </div>
+      <div class="hero-illust">
+        <svg viewBox="0 0 300 340" width="280" style="animation:float 3s ease-in-out infinite 1s;filter:drop-shadow(4px 8px 12px rgba(0,0,0,0.15))">
+          <path d="M90 100 L80 280 C80 300 220 300 220 280 L210 100 Z" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" opacity="0.7"/>
+          <rect x="90" y="240" width="120" height="40" rx="4" fill="#a5d6a7" opacity="0.5"/>
+          <rect x="88" y="200" width="124" height="40" rx="4" fill="#fff9c4" opacity="0.6"/>
+          <rect x="86" y="160" width="128" height="40" rx="4" fill="#81c784" opacity="0.4"/>
+          <rect x="84" y="120" width="132" height="40" rx="4" fill="#c8e6c9" opacity="0.5"/>
+          <ellipse cx="150" cy="110" rx="80" ry="28" fill="#f1f8e9"/>
+          <circle cx="120" cy="95" r="22" fill="#e8f5e9"/>
+          <circle cx="150" cy="88" r="25" fill="#f1f8e9"/>
+          <circle cx="180" cy="95" r="22" fill="#e8f5e9"/>
+          <!-- Matcha powder -->
+          <ellipse cx="150" cy="80" rx="50" ry="12" fill="#689f38" opacity="0.3"/>
+          <!-- Shiratama -->
+          <circle cx="130" cy="72" r="12" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+          <circle cx="155" cy="68" r="10" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+          <circle cx="175" cy="74" r="11" fill="#fce4ec" stroke="#e0e0e0" stroke-width="1"/>
+          <!-- Azuki -->
+          <ellipse cx="145" cy="56" rx="18" ry="8" fill="#8d6e63" opacity="0.7"/>
+          <text x="55" y="55" font-size="18" fill="#aed581">ð¿</text>
+          <text x="215" y="70" font-size="16" fill="#aed581">ð</text>
+          <rect x="168" y="20" width="6" height="120" rx="3" fill="#ffab40" transform="rotate(8 171 80)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-arrows">
+    <button class="hero-arrow" onclick="heroSlide(-1)">â</button>
+    <button class="hero-arrow" onclick="heroSlide(1)">â¶</button>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="section-title-en" style="color:var(--pink)">About Us</div>
+  <div class="section-title-jp">ã«ãã§ã¡ã­ã¦ã«ã¤ãã¦</div>
+  <div class="about-inner fade-up">
+    <div class="about-illust-area">
+      <svg viewBox="0 0 320 280" width="300">
+        <!-- Cafe Interior Illustration -->
+        <!-- Wall -->
+        <rect width="320" height="280" rx="12" fill="#e8f5e9" opacity="0.5"/>
+        <!-- Neon sign -->
+        <text x="50" y="60" font-family="Pacifico,cursive" font-size="36" fill="#ff69b4" opacity="0.8" style="filter:drop-shadow(0 0 8px rgba(255,105,180,0.5))">Cafe Mellow</text>
+        <!-- Table -->
+        <rect x="60" y="180" width="200" height="8" rx="4" fill="#8d6e63"/>
+        <rect x="80" y="188" width="8" height="60" fill="#8d6e63"/>
+        <rect x="232" y="188" width="8" height="60" fill="#8d6e63"/>
+        <!-- Cup -->
+        <path d="M120 140 L116 178 C116 182 164 182 164 178 L160 140 Z" fill="#fff" stroke="#e0e0e0" stroke-width="1.5"/>
+        <ellipse cx="140" cy="140" rx="22" ry="8" fill="#fff5f5"/>
+        <ellipse cx="140" cy="145" rx="16" ry="5" fill="#ff80ab" opacity="0.3"/>
+        <!-- Latte Art heart -->
+        <path d="M136 150 C133 146 128 147 130 152 L136 158 L142 152 C144 147 139 146 136 150Z" fill="#8d6e63" opacity="0.4"/>
+        <!-- Plant -->
+        <rect x="230" y="130" width="30" height="50" rx="4" fill="#a5d6a7"/>
+        <circle cx="245" cy="118" r="22" fill="#66bb6a" opacity="0.6"/>
+        <circle cx="235" cy="110" r="16" fill="#81c784" opacity="0.7"/>
+        <circle cx="255" cy="112" r="14" fill="#4caf50" opacity="0.5"/>
+        <!-- Pendant Light -->
+        <line x1="160" y1="0" x2="160" y2="80" stroke="#bdbdbd" stroke-width="1.5"/>
+        <path d="M140 80 L150 105 L170 105 L180 80 Z" fill="#ffd54f" opacity="0.7"/>
+        <ellipse cx="160" cy="108" rx="12" ry="4" fill="#ffecb3"/>
+        <!-- Stars -->
+        <text x="20" y="100" font-size="14">â­</text>
+        <text x="280" y="90" font-size="12">ð«</text>
+        <text x="15" y="220" font-size="12">ð¸</text>
+      </svg>
+    </div>
+    <div class="about-text">
+      <h3>æ¬ã®ãã«ã¼ãã§å¤§äººæ°ï¼<br>æ¬æ ¼ããã§ã®ã«ãã§ ð</h3>
+      <p>
+        ãCAFE MELLOWï¼ã«ãã§ã¡ã­ã¦ï¼ãã¯ã2020å¹´ã«ä¸åæ²¢ã«ãªã¼ãã³ããå­£ç¯ã®ãã«ã¼ãããã§å°éã«ãã§ã§ãã<br><br>
+        å¥ç´è¾²å®¶ããå±ãæ«ã®ãã«ã¼ãããµãã ãã«ä½¿ããããã£ã·ã§ãä¸ã¤ã²ã¨ã¤æä½ããå®çªããå­£ç¯éå®ã¾ã§ãå³ã¯ãã¡ããè¦ãç®ãããããã¹ã¤ã¼ãããç¨æãã¦ãã¾ãã
+      </p>
+      <div class="about-tags">
+        <span class="about-tag">ð æ¬ã®ãã«ã¼ã</span>
+        <span class="about-tag">ð§ æä½ãã¹ã¤ã¼ã</span>
+        <span class="about-tag">ð¸ ã¤ã³ã¹ã¿æ ã</span>
+        <span class="about-tag">ðª´ å±å¿å°â</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section features">
+  <div class="section-title-en" style="color:var(--blue)">Recommend</div>
+  <div class="section-title-jp">å³ã¯ãã¡ãããè¦ãç®ãæ¥½ãããã¹ã¤ã¼ã</div>
+  <div class="features-grid fade-up">
+    <div class="feature-card">
+      <div class="feature-card-img fc-pink">
+        <span class="feature-badge">äººæ° No.1</span>
+        <span class="feature-neon-text" style="color:#fff;">Yummy!</span>
+        <img src="https://images.unsplash.com/photo-1717677737586-99affb851595?w=500&h=500&fit=crop&auto=format&q=80" alt="å­£ç¯ã®ãã«ã¼ãããã§" loading="lazy">
+      </div>
+      <div class="feature-card-body">
+        <h3>å­£ç¯ã®ãã«ã¼ãããã§ ð</h3>
+        <p>æ¬ã®ãã«ã¼ãÃèªå®¶è£½ã¸ã§ã©ã¼ãã®çæ¿ã¡ãã¥ã¼ããã³ã´ã¼ã»èºã»æ¡ãªã©å­£ç¯ãã¨ã®å³ãï¼</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-img fc-blue">
+        <span class="feature-badge" style="color:var(--blue);">NEW</span>
+        <span class="feature-neon-text" style="color:#fff;">Fresh!</span>
+        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=500&h=500&fit=crop&auto=format&q=80" alt="ãã¬ãã·ã¥ã¹ã ã¼ã¸ã¼" loading="lazy">
+      </div>
+      <div class="feature-card-body">
+        <h3>ãã¬ãã·ã¥ã¹ã ã¼ã¸ã¼ ð¥¤</h3>
+        <p>ç ç³ä¸ä½¿ç¨ã»100%ããã¥ã©ã«ï¼ãã«ã¼ãæ¬æ¥ã®çã¿ãæ¥½ããããã«ã·ã¼ããªã³ã¯ã</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-img fc-yellow">
+        <span class="feature-badge" style="color:#e65100;">SEASONAL</span>
+        <span class="feature-neon-text" style="color:#fff;">Sweetâ¡</span>
+        <img src="https://images.unsplash.com/photo-1773907889788-ed2a37755d76?w=500&h=500&fit=crop&auto=format&q=80" alt="ããªã¼ããªã¼ã¿ã«ã" loading="lazy">
+      </div>
+      <div class="feature-card-body">
+        <h3>ããªã¼ããªã¼ã¿ã«ã ð°</h3>
+        <p>ãµã¯ãµã¯ã¿ã«ãÃã«ã¹ã¿ã¼ãÃãã£ã·ãããªã¼ãçãæ§ããã§å¤§äººã®å³ããã</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="menu-section" id="menu">
+  <div class="menu-inner">
+    <div class="section-title-en" style="color:var(--pink)">Menu</div>
+    <div class="section-title-jp">ã¡ãã¥ã¼</div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="showCat('parfait',this)">ð¨ ããã§</button>
+      <button class="menu-tab" onclick="showCat('tart',this)">ð° ã¿ã«ã</button>
+      <button class="menu-tab" onclick="showCat('smoothie',this)">ð¥¤ ã¹ã ã¼ã¸ã¼</button>
+      <button class="menu-tab" onclick="showCat('drink',this)">â ããªã³ã¯</button>
+    </div>
+
+    <div class="menu-cat active" id="mc-parfait">
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#ffe0b2,#ffb74d)">
+            <img src="https://images.unsplash.com/photo-1652780120256-1d3e582cbbef?w=300&h=300&fit=crop&auto=format&q=80" alt="ãã³ã´ã¼ããã§" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ãã³ã´ã¼ããã§</h4></div>
+          <div class="menu-row-price">1,480å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">
+            <img src="https://images.unsplash.com/photo-1550594645-25c5bd703258?w=300&h=300&fit=crop&auto=format&q=80" alt="ãã¾ããèºããã§" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ãã¾ããèºããã§</h4><p class="sub">â»å­£ç¯éå®</p></div>
+          <div class="menu-row-price">1,680å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fff3e0,#ffcc80)">
+            <img src="https://images.unsplash.com/photo-1639330842151-8a92eb332b2d?w=300&h=300&fit=crop&auto=format&q=80" alt="ã­ã£ã©ã¡ã«ãããããã§" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã­ã£ã©ã¡ã«ãããããã§</h4></div>
+          <div class="menu-row-price">1,380å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#efebe9,#8d6e63)">
+            <img src="https://images.unsplash.com/photo-1514849302-984523450cf4?w=300&h=300&fit=crop&auto=format&q=80" alt="ã·ã§ã³ã©ããã§" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã·ã§ã³ã©ããã§</h4></div>
+          <div class="menu-row-price">1,280å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fff8e1,#ffe082)">
+            <img src="https://images.unsplash.com/photo-1615522894493-2f3e3fda615c?w=300&h=300&fit=crop&auto=format&q=80" alt="å­£ç¯ã®ã¹ãã·ã£ã«ããã§" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>å­£ç¯ã®ã¹ãã·ã£ã«ããã§</h4><p class="sub">â»ææ¿ãã</p></div>
+          <div class="menu-row-price">1,580å(ç¨è¾¼)</div>
+        </div>
+      </div>
+      <div class="top-return"><a href="#top">TOPã¸æ»ã â¶</a></div>
+    </div>
+
+    <div class="menu-cat" id="mc-tart">
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">
+            <img src="https://images.unsplash.com/photo-1561339405-e1dd0d129449?w=300&h=300&fit=crop&auto=format&q=80" alt="ããªã¼ããªã¼ã¿ã«ã" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ããªã¼ããªã¼ã¿ã«ã</h4></div>
+          <div class="menu-row-price">780å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">
+            <img src="https://images.unsplash.com/photo-1670819916757-e8d5935a6c65?w=300&h=300&fit=crop&auto=format&q=80" alt="å­£ç¯ã®ãã«ã¼ãã¿ã«ã" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>å­£ç¯ã®ãã«ã¼ãã¿ã«ã</h4><p class="sub">â»ææ¿ãã</p></div>
+          <div class="menu-row-price">880å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#efebe9,#a1887f)">
+            <img src="https://images.unsplash.com/photo-1717677752061-6efe3d8ac919?w=300&h=300&fit=crop&auto=format&q=80" alt="ã·ã§ã³ã©ãããã¿ã«ã" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã·ã§ã³ã©ãããã¿ã«ã</h4></div>
+          <div class="menu-row-price">750å(ç¨è¾¼)</div>
+        </div>
+      </div>
+      <div class="top-return"><a href="#top">TOPã¸æ»ã â¶</a></div>
+    </div>
+
+    <div class="menu-cat" id="mc-smoothie">
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">
+            <img src="https://images.unsplash.com/photo-1600718374662-0483d2b9da44?w=300&h=300&fit=crop&auto=format&q=80" alt="ã¹ãã­ããªã¼ã¹ã ã¼ã¸ã¼" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã¹ãã­ããªã¼ã¹ã ã¼ã¸ã¼</h4></div>
+          <div class="menu-row-price">680å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fff3e0,#ffb74d)">
+            <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=300&h=300&fit=crop&auto=format&q=80" alt="ãã­ãã«ã«ãã³ã´ã¼ã¹ã ã¼ã¸ã¼" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ãã­ãã«ã«ãã³ã´ã¼ã¹ã ã¼ã¸ã¼</h4></div>
+          <div class="menu-row-price">720å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#e8f5e9,#81c784)">
+            <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=300&h=300&fit=crop&auto=format&q=80" alt="ã°ãªã¼ã³ãããã¯ã¹" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã°ãªã¼ã³ãããã¯ã¹</h4><p class="sub">ã­ã¦ã¤ã»ã»ãããèã»ããã</p></div>
+          <div class="menu-row-price">750å(ç¨è¾¼)</div>
+        </div>
+      </div>
+      <div class="top-return"><a href="#top">TOPã¸æ»ã â¶</a></div>
+    </div>
+
+    <div class="menu-cat" id="mc-drink">
+      <div class="menu-list">
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#efebe9,#d7ccc8)">
+            <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?w=300&h=300&fit=crop&auto=format&q=80" alt="ã«ãã§ã©ã" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ã«ãã§ã©ã</h4><p class="sub">Ice / Hot</p></div>
+          <div class="menu-row-price">520å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9)">
+            <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&h=300&fit=crop&auto=format&q=80" alt="èªå®¶è£½ã¬ã¢ãã¼ã" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>èªå®¶è£½ã¬ã¢ãã¼ã</h4><p class="sub">Ice</p></div>
+          <div class="menu-row-price">580å(ç¨è¾¼)</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-row-img" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2)">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=300&fit=crop&auto=format&q=80" alt="ç´è¶åç¨®" loading="lazy">
+          </div>
+          <div class="menu-row-info"><h4>ç´è¶åç¨®</h4><p class="sub">ã¢ã¼ã«ã°ã¬ã¤ / ãã¼ã¸ãªã³ / ã¸ã£ã¹ãã³ï¼Ice / Hotï¼</p></div>
+          <div class="menu-row-price">450å(ç¨è¾¼)</div>
+        </div>
+      </div>
+      <div class="top-return"><a href="#top">TOPã¸æ»ã â¶</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="news-section" id="news-sec">
+  <div class="news-inner fade-up">
+    <div class="section-title-en" style="color:var(--yellow);">News</div>
+    <div class="section-title-jp">ãç¥ãã</div>
+    <div>
+      <div class="news-item"><span class="news-date">2026/5/1</span><span>6æã®å­£ç¯éå®ããã§ãå®®å´ãã³ã´ã¼ãµã³ã»ãããã®ãç¥ãã ð¥­</span></div>
+      <div class="news-item"><span class="news-date">2026/4/15</span><span>GWæéã®å¶æ¥­æéå¤æ´ã«ã¤ãã¦</span></div>
+      <div class="news-item"><span class="news-date">2026/3/20</span><span>æ¥ã®æ°ã¡ãã¥ã¼ãæ¡ã­ã¼ããã§ãè²©å£²éå§ ð¸</span></div>
+    </div>
+    <button class="news-btn">ãç¥ããä¸è¦§ â</button>
+  </div>
+</section>
+
+<!-- Shop -->
+<section class="shop-section" id="shop">
+  <div class="shop-inner fade-up">
+    <div class="section-title-en" style="color:var(--blue);">Shop</div>
+    <div class="section-title-jp">åºèç´¹ä»</div>
+
+    <div class="shop-photos">
+      <div class="shop-photo sp1">
+        <svg viewBox="0 0 200 200" width="160">
+          <rect width="200" height="200" fill="#a5d6a7" opacity="0.3" rx="8"/>
+          <rect x="40" y="80" width="120" height="90" rx="6" fill="#fff" opacity="0.8"/>
+          <rect x="50" y="60" width="100" height="25" rx="4" fill="#ff80ab" opacity="0.6"/>
+          <text x="60" y="78" font-family="Pacifico" font-size="14" fill="#fff">Cafe Mellow</text>
+          <rect x="75" y="120" width="30" height="50" rx="2" fill="#8d6e63" opacity="0.4"/>
+          <rect x="55" y="95" width="25" height="20" rx="2" fill="#bbdefb" opacity="0.5"/>
+          <rect x="120" y="95" width="25" height="20" rx="2" fill="#bbdefb" opacity="0.5"/>
+          <text x="80" y="190" font-size="10" fill="#666" font-weight="700">å¤è¦³</text>
+        </svg>
+      </div>
+      <div class="shop-photo sp2">
+        <svg viewBox="0 0 200 200" width="160">
+          <rect width="200" height="200" fill="#ffd3b6" opacity="0.3" rx="8"/>
+          <rect x="20" y="100" width="160" height="8" rx="4" fill="#8d6e63" opacity="0.5"/>
+          <rect x="30" y="60" width="50" height="45" rx="8" fill="#ffab91" opacity="0.4"/>
+          <rect x="100" y="55" width="60" height="50" rx="8" fill="#ce93d8" opacity="0.3"/>
+          <circle cx="55" cy="70" r="12" fill="#fff" opacity="0.6"/>
+          <circle cx="130" cy="72" r="14" fill="#fff" opacity="0.5"/>
+          <text x="50" y="145" font-size="20">ðª´</text>
+          <text x="130" y="145" font-size="16">ð¡</text>
+          <text x="70" y="190" font-size="10" fill="#666" font-weight="700">åºå</text>
+        </svg>
+      </div>
+      <div class="shop-photo sp3">
+        <svg viewBox="0 0 200 200" width="160">
+          <rect width="200" height="200" fill="#dcedc1" opacity="0.3" rx="8"/>
+          <rect x="20" y="90" width="160" height="60" rx="8" fill="#fff" opacity="0.7"/>
+          <rect x="30" y="80" width="40" height="30" rx="4" fill="#ff80ab" opacity="0.4"/>
+          <rect x="80" y="75" width="35" height="35" rx="4" fill="#ffd54f" opacity="0.4"/>
+          <rect x="130" y="80" width="40" height="30" rx="4" fill="#80deea" opacity="0.4"/>
+          <text x="38" y="170" font-size="16">ð°</text>
+          <text x="88" y="170" font-size="16">ð§</text>
+          <text x="140" y="170" font-size="16">ð©</text>
+          <text x="55" y="190" font-size="10" fill="#666" font-weight="700">ã·ã§ã¼ã±ã¼ã¹</text>
+        </svg>
+      </div>
+      <div class="shop-photo sp4">
+        <svg viewBox="0 0 200 200" width="160">
+          <rect width="200" height="200" fill="#ff8b94" opacity="0.3" rx="8"/>
+          <rect x="30" y="40" width="140" height="80" rx="12" fill="#fff" opacity="0.7"/>
+          <text x="45" y="85" font-family="Pacifico" font-size="24" fill="#ff69b4">Mellow</text>
+          <text x="40" y="110" font-size="9" fill="#999" letter-spacing="2">SEASONAL FRUIT PARFAIT</text>
+          <circle cx="100" cy="155" r="25" fill="#ffd54f" opacity="0.5"/>
+          <text x="88" y="162" font-size="20">ð</text>
+          <text x="60" y="190" font-size="10" fill="#666" font-weight="700">çæ¿</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="shop-info-grid">
+      <div class="shop-table">
+        <table>
+          <tr><th>åºèå</th><td>CAFE MELLOW ä¸åæ²¢æ¬åº</td></tr>
+          <tr><th>ä½æ</th><td>ã155-0031<br>æ±äº¬é½ä¸ç°è°·åºåæ²¢2-XX-X ã¡ã­ã¦ãã« 1F</td></tr>
+          <tr><th>é»è©±çªå·</th><td>03-5765-8821</td></tr>
+          <tr><th>å¶æ¥­æé</th><td>ãå¹³æ¥ã11:00ã21:00<br>ãåæ¥ç¥ã10:00ã22:00</td></tr>
+          <tr><th>å®ä¼æ¥</th><td>ä¸å®ä¼</td></tr>
+          <tr><th>åº§å¸­æ°</th><td>42å¸­ï¼ãã©ã¹8å¸­å«ãï¼</td></tr>
+          <tr><th>æ±»æ¸</th><td>ç¾é / ã¯ã¬ã¸ãã / é»å­ããã¼</td></tr>
+          <tr><th>ç¦ç</th><td>å®å¨ç¦ç</td></tr>
+        </table>
+      </div>
+      <div class="shop-map">ð Google Map ãããã«åãè¾¼ã¿ã¾ã</div>
+    </div>
+  </div>
+</section>
+
+<!-- SNS -->
+<section class="sns-section" id="contact">
+  <div class="section-title-en" style="color:var(--pink);">Follow Us</div>
+  <div class="section-title-jp">ãåãåããã»SNS</div>
+  <div class="sns-grid fade-up">
+    <div class="sns-card sns-mail"><div class="icon">âï¸</div><h4>ãåãåãã</h4></div>
+    <div class="sns-card sns-ig"><div class="icon">ð·</div><h4>Instagram</h4></div>
+    <div class="sns-card sns-x"><div class="icon">ð¦</div><h4>X (Twitter)</h4></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#top">ãã¼ã </a><a href="#menu">ã¡ãã¥ã¼</a><a href="#shop">åºèç´¹ä»</a>
+    <a href="#news-sec">ãç¥ãã</a><a href="#contact">ãåãåãã</a>
+    <a href="#">åäººæå ±ä¿è­·æ¹é</a><a href="#">æ¡ç¨æå ±</a><a href="#">ãµã¤ãããã</a>
+  </div>
+  <div class="footer-logo">ð Cafe Mellow</div>
+  <div class="footer-sub">SEASONAL FRUIT PARFAIT CAFE</div>
+  <div class="footer-copy">&copy; 2026 CAFE MELLOW Inc. ALL RIGHTS RESERVED.</div>
+</footer>
+
+<!-- Sticky Bar -->
+<div class="sticky-bar">
+  <div class="sticky-phone">
+    <span>ð</span>
+    <div>
+      <div class="num">03-5765-8821</div>
+      <div class="hrs">ãå¹³æ¥ã11:00ã21:00 ãåæ¥ç¥ã10:00ã22:00</div>
+    </div>
+  </div>
+  <div class="sticky-right">
+    <a href="#contact" class="sticky-cta">ãåãåãã</a>
+    <button class="sticky-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">â§</button>
+  </div>
+</div>
+
+<script>
+// Hero Slider
+let hIdx=0;
+const hSlides=document.querySelectorAll('.hero-slide');
+function heroSlide(d){
+  hSlides[hIdx].classList.remove('active');
+  hIdx=(hIdx+d+hSlides.length)%hSlides.length;
+  hSlides[hIdx].classList.add('active');
+}
+setInterval(()=>heroSlide(1),5000);
+
+// Menu Tabs
+function showCat(cat,el){
+  document.querySelectorAll('.menu-cat').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('mc-'+cat).classList.add('active');
+  el.classList.add('active');
+}
+
+// Fade-in
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(e=>obs.observe(e));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+
+</body>
+</html>
